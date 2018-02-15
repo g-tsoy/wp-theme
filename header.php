@@ -13,8 +13,13 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="http://gmpg.org/xfn/11">
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 	<?php wp_head(); ?>
 </head>
+
 
 <?php
 echo '<body itemscope itemtype="http://schema.org/WebPage" ' . 'class="' . join( ' ', get_body_class() ) . '"' . ' dir="';
@@ -28,50 +33,50 @@ echo '">';
 <a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'llorix-one-lite' ); ?></a>
 <!-- =========================
 	PRE LOADER
-============================== -->
-<?php
+	============================== -->
+	<?php
 
-global $wp_customize;
+	global $wp_customize;
 
-if ( is_front_page() && ! isset( $wp_customize ) && get_option( 'show_on_front' ) != 'page' ) :
+	if ( is_front_page() && ! isset( $wp_customize ) && get_option( 'show_on_front' ) != 'page' ) :
 
-	$llorix_one_lite_disable_preloader = get_theme_mod( 'llorix_one_lite_disable_preloader' );
+		$llorix_one_lite_disable_preloader = get_theme_mod( 'llorix_one_lite_disable_preloader' );
 
-	if ( isset( $llorix_one_lite_disable_preloader ) && ( $llorix_one_lite_disable_preloader != 1 ) ) :
+		if ( isset( $llorix_one_lite_disable_preloader ) && ( $llorix_one_lite_disable_preloader != 1 ) ) :
 
-		echo '<div class="preloader">';
-		echo '<div class="status">&nbsp;</div>';
-		echo '</div>';
+			echo '<div class="preloader">';
+			echo '<div class="status">&nbsp;</div>';
+			echo '</div>';
+
+		endif;
 
 	endif;
-
-endif;
-?>
+	?>
 
 
 <!-- =========================
 	SECTION: HOME / HEADER
-============================== -->
-<!--header-->
-<?php
+	============================== -->
+	<!--header-->
+	<?php
 	$parallax_effect             = '';
 	$llorix_one_lite_enable_move = get_theme_mod( 'llorix_one_lite_enable_move' );
 	if ( ! empty( $llorix_one_lite_enable_move ) && $llorix_one_lite_enable_move ) {
-	$parallax_effect = ' headr-parallax-effect';
+		$parallax_effect = ' headr-parallax-effect';
 	}
 
-?>
+	?>
 
-<header itemscope itemtype="http://schema.org/WPHeader" id="masthead" role="banner" data-stellar-background-ratio="0.5" class="header header-style-one site-header<?php echo $parallax_effect; ?>">
+	<header itemscope itemtype="http://schema.org/WPHeader" id="masthead" role="banner" data-stellar-background-ratio="0.5" class="header header-style-one site-header<?php echo $parallax_effect; ?>">
 
-	<!-- COLOR OVER IMAGE -->
-	<?php
+		<!-- COLOR OVER IMAGE -->
+		<?php
 
-	$fixedheader = 'sticky-navigation-open';
+		$fixedheader = 'sticky-navigation-open';
 
-	$llorix_one_lite_sticky_header = get_theme_mod( 'llorix_one_lite_sticky_header', 'llorix-one-lite' );
+		$llorix_one_lite_sticky_header = get_theme_mod( 'llorix_one_lite_sticky_header', 'llorix-one-lite' );
 
-	$llorix_one_lite_keep_old_fp_template = get_theme_mod( 'llorix_one_lite_keep_old_fp_template' );
+		$llorix_one_lite_keep_old_fp_template = get_theme_mod( 'llorix_one_lite_keep_old_fp_template' );
 
 	/**
 	 * Header toggle option should only be available for the custom frontpage
@@ -86,9 +91,9 @@ endif;
 	<div class="overlay-layer-nav 
 	<?php
 	if ( ! empty( $fixedheader ) ) {
-echo esc_attr( $fixedheader ); }
-?>
-">
+		echo esc_attr( $fixedheader ); }
+		?>
+		">
 
 		<!-- STICKY NAVIGATION -->
 		<div class="navbar navbar-inverse bs-docs-nav navbar-fixed-top sticky-navigation appear-on-scroll">
@@ -181,11 +186,11 @@ echo esc_attr( $fixedheader ); }
 						<span class="icon-bar"></span>
 					</button>
 
+
 					<?php
 
 					$llorix_one_lite_logo = get_theme_mod( 'llorix_one_lite_logo' );
 					$llorix_one_lite_logo = apply_filters( 'llorix_one_lite_translate_single_string', $llorix_one_lite_logo, 'Header Logo' );
-
 
 					if ( ! empty( $llorix_one_lite_logo ) ) :
 
@@ -230,19 +235,16 @@ echo esc_attr( $fixedheader ); }
 
 				<!-- MENU -->
 				<div itemscope itemtype="http://schema.org/SiteNavigationElement" aria-label="<?php esc_html_e( 'Primary Menu', 'llorix-one-lite' ); ?>" id="menu-primary" class="navbar-collapse collapse">
+
 					<!-- LOGO ON STICKY NAV BAR -->
 					<div id="site-header-menu" class="site-header-menu">
-						<nav id="site-navigation" class="main-navigation" role="navigation">
-							<?php
-							wp_nav_menu(
-								array(
-									'theme_location' => 'primary',
-									'menu_class'     => 'primary-menu small-text',
-									'depth'          => 4,
-									'fallback_cb'    => 'llorix_one_lite_wp_page_menu',
-								)
-							);
-							?>
+					
+					<!-- change 3 -->
+						<nav class="navbar navbar-light bg-faded">
+							<form class="form-inline">
+								<button class="btn btn-standart" style="background-color:#f16c20" type="button">Начнем!</button>
+								<button class="btn btn-sm align-middle btn-outline-secondary" type="button">Команда</button>
+							</form>
 						</nav>
 					</div>
 				</div>
