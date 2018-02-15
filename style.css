@@ -277,12 +277,11 @@ h5 {
 	-ms-word-wrap: break-word;
 	word-wrap: break-word;
 }
-/*Change 2*/
+
 h1.intro {
-	font-size: 5rem;
-	line-height: 7rem;
+	font-size: 3.75rem;
+	line-height: 5rem;
 	text-align: center;
-	margin-bottom: 4rem;
 }
 
 h1.single-title {
@@ -750,9 +749,6 @@ big {
 .overlay-layer-wrap {
 	position: relative;
 	z-index: 3;
-}
-.bot-footer{
-	background-color: grey;
 }
 
 
