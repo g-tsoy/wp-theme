@@ -54,11 +54,18 @@
 			</div><!-- .footer-widget-wrap -->
 
 			<div class="footer-bottom-wrap">
-<!-- 				Change 1
- -->				
- 				<h2> <a href="#">В начало</a></h2>
-
 				<?php
+					global $wp_customize;
+
+					/* COPYRIGHT */
+					$llorix_one_lite_copyright = get_theme_mod( 'llorix_one_lite_copyright', apply_filters( 'llorix_one_lite_copyright_default_filter', 'Themeisle' ) );
+					$llorix_one_lite_copyright = apply_filters( 'llorix_one_lite_translate_single_string', $llorix_one_lite_copyright, 'Copyright' );
+
+					if ( ! empty( $llorix_one_lite_copyright ) ) {
+					echo '<span class="llorix_one_lite_copyright_content">' . esc_attr( $llorix_one_lite_copyright ) . '</span>';
+					} elseif ( isset( $wp_customize ) ) {
+					echo '<span class="llorix_one_lite_copyright_content llorix_one_lite_only_customizer"></span>';
+					}
 
 					/* OPTIONAL FOOTER LINKS */
 
@@ -84,8 +91,11 @@
 
 			<?php echo apply_filters( 'llorix_one_plus_footer_text_filter', '<div class="powered-by"><a href="http://themeisle.com/themes/llorix-one/" rel="nofollow">Llorix One Lite </a>' . esc_html__( 'powered by', 'llorix-one-lite' ) . ' <a href="http://wordpress.org/" rel="nofollow">' . esc_html__( 'WordPress', 'llorix-one-lite' ) . '</a></div>' ); ?>
 
+
 		</div><!-- container -->
+		<div> I AM TRYING TO FIX IT! </div>
 	</footer>
+
 	<?php wp_footer(); ?>
 
 </body>
